@@ -8,7 +8,7 @@ document.forms.publish.onsubmit = function () {
 };
 
 socket.onmessage = function (event) {
-  console.log(event.data);
+  console.log(event);
   let message = event.data;
   let messageElem = document.createElement("div");
   messageElem.textContent = message;
