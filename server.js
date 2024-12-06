@@ -1,7 +1,7 @@
 const http = require("node:http");
 const ws = require("ws");
 
-const wss = new ws.Server({ noServer: true });
+const wss = new ws.Server({ noServer: true, perMessageDeflate: true });
 
 function accept(req, res) {
   if (
@@ -16,7 +16,6 @@ function accept(req, res) {
     res.end();
     return;
   }
-
   wss.handleUpgrade(req, req.socket, Buffer.alloc(0), onConnect);
 }
 
